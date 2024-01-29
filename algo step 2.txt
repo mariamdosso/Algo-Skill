@@ -3,11 +3,11 @@ algo convertion
 	Devise:chaine de caractere
 debut
 	ECRIRE("entrez votre devise svp")
-	lire(Devise)
+	Lire(Devise)
 	ECRIRE("entrez le montant de votre devise svp")
-	lire(MtDev)
+	Lire(MtDev)
 	ECRIRE("entrez le taux de change svp")
-	lire(Taux)
+	Lire(Taux)
 	convertisseur <-- MtDev*Taux
-	ecrire("la valeur du nombre convertie est ",convertisseur)
+	Ecrire("la valeur du nombre convertie est ",convertisseur)
 fin
