@@ -1,0 +1,3 @@
+algo convertisseur
+var:MtDev,Taux:reelDevise
+Devise:chaine de caractere
