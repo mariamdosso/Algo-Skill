@@ -1,12 +1,13 @@
 algo multiplicateur
 	const:multiplieur <-- 3 
-	var: Nombre,rst:reel
+	var: Nombre,rst ,Ad :entier
 debut
 	Ecrire("veillez entrez un nombre svp")
 	Lire(Nombre)
 	si( Nombre mod 2 = 0) alors
-		Nombre * 3
+		Ad <-- Nombre * 3
+		Ecrire ("la valeur multiplie est",Ad)
 	sinon
-		rst <-- (Nombre mod 3)
+		rst <-- (Nombre mod 2)
 		Ecrire ("le reste de la division est ",rst)
 finsi
