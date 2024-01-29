@@ -5,7 +5,7 @@ debut
 	Ecrire("veillez entrez un nombre svp")
 	Lire(Nombre)
 	si( Nombre mod 2 = 0) alors
-		Ad <-- Nombre * 3
+		Ad <-- Nombre * multiplicateur
 		Ecrire ("la valeur multiplie est",Ad)
 	sinon
 		rst <-- (Nombre mod 2)
