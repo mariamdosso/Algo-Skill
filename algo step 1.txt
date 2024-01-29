@@ -1,8 +1,10 @@
 algo calcule-tonnage
-	const:prix-fix:entier
+	const:prix-fix=788.60:entier
 	var:nbr_tonnne,ptt:reel
 debuut
 	ecrire (veillez saisie le nombre de tonne que vous avez)
-	lire(nombre_tonne)
-	ptt <--- nbr_tonne*prix-fix
+	lire(nbr_tonne)
+	ptt <-- nbr_tonne*prix-fix
+	ecrire(LE PRIX DE VOTRE TONNE EST:"ptt")
+	lire(ptt)
 fin
