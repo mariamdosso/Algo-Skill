@@ -5,6 +5,5 @@ debut
 	ecrire (veillez saisie le nombre de tonne que vous avez)
 	lire(nbr_tonne)
 	ptt <-- nbr_tonne*prix-fix
-ECRIRE(LE PRIX DE VOTRE TONNE EST:"ptt")
-	lire(ptt)
+ECRIRE(LE PRIX DE VOTRE TONNE EST),ptt
 fin
