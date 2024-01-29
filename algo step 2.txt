@@ -1,3 +1,13 @@
-algo convertisseur
-var:MtDev,Taux:reelDevise
-Devise:chaine de caractere
+algo convertion
+	var:MtDev,Taux,Convertisseur:reel
+	Devise:chaine de caractere
+debut
+	ECRIRE("entrez votre devise svp")
+	lire(Devise)
+	ECRIRE("entrez le montant de votre devise svp")
+	lire(MtDev)
+	ECRIRE("entrez le taux de change svp")
+	lire(Taux)
+	convertisseur <-- MtDev*Taux
+	ecrire("la valeur du nombre convertie est ",convertisseur)
+fin

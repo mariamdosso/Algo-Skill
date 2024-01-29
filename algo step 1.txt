@@ -1,6 +1,6 @@
 algo calcule-tonnage
 	const:prix-fix <-- 788.60
-	var:nbr_tonnne,ptt:reel
+	var:nbr_tonne,ptt:reel
 debut
 	ecrire ("veillez saisie le nombre de tonne que vous avez")
 	lire(nbr_tonne)
