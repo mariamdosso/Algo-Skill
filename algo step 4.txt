@@ -1,19 +1,21 @@
+
 Algo Calcul_rendement
 VAR : sup_parc,taux_occup,nbr_hect_culture, nbr_hect_cacao,nbr_hect_cafe,  nbr_hect_cajoux,pro_total,pro_cacao,pro_cafe,pro_cajoux,gain_total,gain_caao,gain_cafe,gain_cajoux :reel
 	choix:entier
-const:prix_fix_cacao,prix_fix_cafe,prix_fix_cajoux,tonne_fix_cacao,tonne_fix_cafe,tonne_fix_cajoux
-
+const : prix_fix_cacao <--1000FCFA,prix_fix_cafe <--750FCFA,prix_fix_cajoux <--226FCFA,tonne_fix_cacao,tonne_fix_cafe,tonne_fix_cajoux
 
 debut
-		Ecrire("cacao 1------1.2 tonne par hectare -----1000FCFA/kg")
-		Ecrire("cafe 2-------880 tonne par hectare -----750 FCFA/kg ")
-		Ecrire("cajoux 3-----3.6 tonne par hectare------226 FCFA/kg")
+		
 	Ecrire("entrez la superficie de votre parcelle en hecta svp")
 	Lire(sup_parc)
-	Ecrire("entrez le taux d'occupation de votre parcelle(nombre d'hecta cultive)")
+	Ecrire(" ENTREZ le nombre d'hecta cultive")
 	Lire(taux_occup)
 	Ecrire(" entrez le numero de choix de la culture ")
 	Lire(choix)
+		Ecrire("cacao 1------1.2 tonne par hectare -----1000FCFA/kg")
+		Ecrire("cafe 2-------880 tonne par hectare -----750 FCFA/kg ")
+		Ecrire("cajoux 3-----3.6 tonne par hectare------226 FCFA/kg")
+		Ecrire ("ATTENTION LE CHOIX EST CUMULTATIVE")
 	si (choix = 3) alors
 		Ecrire("entrez la superficie du cacao,cafe et de la cajoux ")
 		si (choix < 2) alors
