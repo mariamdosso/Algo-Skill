@@ -1,74 +1,101 @@
 
 Algo Calcul_rendement
-VAR : sup_parc,taux_occup,nbr_hect_culture, nbr_hect_cacao,nbr_hect_cafe,  nbr_hect_cajoux,pro_total,pro_cacao,pro_cafe,pro_cajoux,gain_total,gain_caao,gain_cafe,gain_cajoux :reel
+VAR : sup_parc,taux_occup,nbr_hect_culture, nbr_hect_cacao,nbr_hect_cafe,  nbr_hect_cajoux,pro_total,pro_cacao,pro_cafe,pro_cajoux,gain_total,gain_caao,gain_cafe,gain_cajoux,pource_parce_cultiver:reel
 	choix:entier
-const : prix_fix_cacao <--1000FCFA,prix_fix_cafe <--750FCFA,prix_fix_cajoux <--226FCFA,tonne_fix_cacao,tonne_fix_cafe,tonne_fix_cajoux
+const : prix_fix_cacao <--1000FCFA,prix_fix_cafe <--750FCFA,prix_fix_cajoux <--226FCFA,tonne_fix_cacao<--1.2,tonne_fix_cafe <-- 0.88,tonne_fix_cajoux<-- 3.6
 
 debut
 		
-	Ecrire("entrez la superficie de votre parcelle en hecta svp")
-	Lire(sup_parc)
+	Ecrire("entrez la superficie de votre parcelle en hecta svp") 
+	Lire(sup_parc) //8
 	Ecrire(" ENTREZ le nombre d'hecta cultive")
-	Lire(taux_occup)
-	Ecrire(" entrez le numero de choix de la culture ")
-	Lire(choix)
+	Lire(taux_occup) // 5
 		Ecrire("cacao 1------1.2 tonne par hectare -----1000FCFA/kg")
-		Ecrire("cafe 2-------880 tonne par hectare -----750 FCFA/kg ")
+		Ecrire("cafe 2-------880 kg par hectare -----750 FCFA/kg ")
 		Ecrire("cajoux 3-----3.6 tonne par hectare------226 FCFA/kg")
-		Ecrire ("ATTENTION LE CHOIX EST CUMULTATIVE")
-	si (choix = 3) alors
-		Ecrire("entrez la superficie du cacao,cafe et de la cajoux ")
-		si (choix < 2) alors
-			Ecrire(" entrez la superficie cacao")
-		sinon
-			Ecrire("entrez la superficie du CACAO et du CAFE")
+	Ecrire ("ATTENTION LE CHOIX EST CUMULTATIVE")
 
-		FINSI
-	FINSI
-	Ecrire("entrez le taux d'occupation de cacao")
+	ECRIRE (" 1 CACAO )
+	ECRIRE (" 2 CACAO,CAFE )
+	ECRIRE (" 3 CACAO , CAFE,CAJOUX)
+	Ecrire(" entrez le numero de choix de la culture ")
+	Lire(choix) // 1
+
+	Si (choix = 1 ) alors
+		nbr_hect_cafe <-- 0
+		nbr_hect_cajou <-- 0
+		Ecrire ("entrez le taux d'occupation de cacao")
+		Lire(nbr_hect_cacao) // 5
+	Finsi
+	Si( choix = 2 )alors
+		nbr_ hect_cajoux <-- 0
+		Ecrire ("entrez le taux d'occupation de cacao")
 		Lire(nbr_hect_cacao)
-	Ecrire("entrez le taux d'occupation de cafe")
+		Ecrire("entrez le taux d'occupation de cafe")
 		Lire(nbr_hect_cafe)
-	Ecrire("entrez le taux d'occupation de cajoux")
-		Lire(nbr_hect_cajoux)		Lire(nbr_hect_cacao)
-
-	taux_occup <-- sup_parc - (nbr_hect_cacao+ nbr_hect_cafe + nbr_hect_cajoux)*100
-		Ecrire("voici le taux d'occupation de la parcelle ",taux_occup)
-	nbr_hect_cacao <-- taux_occup - (nbr_hect_cafe + nbr_hect_cajoux)*100
-		Ecrire(" voici le taux d'occupation du cacao ",nbr_hect_cacao)
-	nbr_hect_cafe <-- taux_occup -(nbr_hect_cacao +nbr_hect_cajoux)*100
-		Ecrire(" voici le taux d'occupation du cafe",nbr_hect_cafe)
-	nbr_hect_cajoux <-- taux_occup -(nbr_hect_cacao +nbr_hect_cafe)*100
-		Ecrire(" voici le taux d'occupation du cafe",nbr_hect_cajoux)
+	Finsi
+	Si ( choix = 3) alors 
+		Ecrire ("entrez le taux d'occupation de cacao")
+		Lire(nbr_hect_cacao)
+		Ecrire("entrez le taux d'occupation de cafe")
+		Lire(nbr_hect_cafe)
+		Ecrire("entrez le taux d'occupation de cajoux")
+		Lire(nbr_hect_cajoux)
+		Sinon 
+			Ecrire (" VOTRE CHOIX EST NUL")
+	Finsi
+           /// 8 - (5+0+0) * 100
+		pource_parce_cultiver <-- (taux_occup/sup_parc)*100
+		/si (choix = 1 ) alors
+			taux_hect_cacao <--  (nbr_hect_cacao/ taux_occup)*100
+		finsi
+		si (choix = 2 ) alors
+			taux_hect_cacao <--  (nbr_hect_cacao/ taux_occup)*100
+		Ecrire(" voici le taux d'occupation du cacao ",taux_hect_cacao)
+			taux_hect_cafe <-- (nbr_hect_cafe/taux_occup)*100
+		Ecrire(" voici le taux d'occupation du cafe",taux_hect_cafe)
+		finsi
+		si (choix = 3) alors 
+			taux_hect_cacao <--  (nbr_hect_cacao/ taux_occup)*100
+			taux_hect_cafe <-- (nbr_hect_cafe/taux_occup)*100
+			taux_hect_cajoux <-- (nbr_hect_cajoux/ taux_occup)*100
+		finsi
 ----------------------------------------------------------------------------------------------------------------
 	pro_total <-- (nbr_hect_cacao*tonne_fix_cacao)+(nbr_hect_cafe*tonne_fix_cafe)+(nbr_hect_cafe*tonne_fix_cafe)
-		Ecrire("voici votre production total",pro_total)
 	pro_cacao <--nbr_hect_cacao*tonne_fix_cacao
-		Ecrire("la production de cacao est",pro_cacao)
 	pro_cafe <--nbr_hect_cafe*tonne_fix_cafe
-		Ecrire("la production de cafe est",pro_cafe)
 	pro_cajoux <--nbr_hect_cajoux*tonne_fix_cajoux
-		Ecrire("la production de cajoux est",pro_cajoux)
 ------------------------------------------------------------------------------------------------------------
-	gain_total <-- (pro_cacao*1000) +( pro_cafe*750) + (pro_cajoux*226)
-		Ecrire(" votre gain total est",gain_total)
+	gain_total <-- (pro_cacao*prix_fix_cacao) +( pro_cafe*prix_fix_cafe) + (pro_cajoux*prix_fix_cajoux)
 	gain_cacao <-- pro_cacao * prix_fix_cacao
-	Ecrire("le gain de votre cacao est",gain_cacao)
 
 	gain_cafe <-- pro_cafe * prix_fix_cafe
-		Ecrire("le gain de votre cafe est",gain_cafe)
 	gain_cajoux <-- pro_cajou * prix_fix_cajoux
-		Ecrire("le gain de votre cajoux est",gain_cajoux)
-	si gain_cacao >gain_cafe Alors
-			Ecrire("la culture la plus rentable est le cacao")
-		si gain_cafe > gain_cajoux Alors
-			Ecrire("la culture la plus rentable est le cafe")
-		sinon
-			Ecrire("la culture la plus rentable est le cajoux")
-		finsi
-	finsi
+	Ecrire (" la superfie cultive est de : ",pource_parce_cultiver de votre parcelle )
+	Ecrire (" le cacao occupe  : ",taux_hect_cacao de votre parcelle )
+	Ecrire (" le cafe occupe  : ",taux_hect_cafe de votre parcelle )
+	Ecrire (" le cajoux occupe  : ",taux_hect_cajoux de votre parcelle )
+	Ecrire (" la production total de vos semences est  : ",pro_total en tonne )
+	Ecrire (" la production du cacao est  : ",pro_cacao  en tonne)
+	Ecrire (" la production cafe est  : ",pro_cafe en tonne )
+	Ecrire (" la production cajoux est  : ",pro_cajoux en tonne )
+	Ecrire (" le gain total est de  : ",gain_total en fcfa)
+	Ecrire (" le gain du cacao est de : ",gain_cacao)
+	Ecrire (" le gain du cafe est de : ",gain_cafe en fcfa )	
+	Ecrire (" le gain de la cajoux est: ",gain_cajoux en fcfa )
+	Si( ( gain_cacao >  gain_cafe ) ET (gain_cacao > gain_cajoux) ) alors 
+		Ecrire (" la culture la plus rentable est le CACAO avec la somme qui est : ", gain_cacao)
+	FinSi
+	Si (( gain_cafe > gain_cacao) ET (gain_cafe > gain_cajoux) ) alors
+		Ecrire("la culture la plus rentable est : " ,le CAFE avec la somme de :",gain_cafe)
+	FinSi
+	si  (( gain_cajoux > gain_cacao) ET (gain_cajoux > gain_cafe) ) alors
+		Ecrire("la culture la plus rentable est : " ,le CAJOUX avec la somme de :",gain_cajoux)	
+	FinSi
+
+
+
+	
 fin.
-
-
 
 
