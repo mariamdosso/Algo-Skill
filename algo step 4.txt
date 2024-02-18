@@ -64,11 +64,11 @@ debut
 	pro_cafe <--nbr_hect_cafe*tonne_fix_cafe
 	pro_cajoux <--nbr_hect_cajoux*tonne_fix_cajoux
 ------------------------------------------------------------------------------------------------------------
-	gain_total <-- ((pro_cacao* 1000) *(prix_fix_cacao)) +(( pro_cafe* 1000 ) *(prix_fix_cafe) + ((pro_cajoux* 1000) *(prix_fix_cajoux))
-	gain_cacao <-- (pro_cacao * 1000) * prix_fix_cacao
-	gain_cafe <-- (pro_cafe *1000)* prix_fix_cafe
-	gain_cajoux <-- (pro_cajou *1000) * prix_fix_cajoux
-	Ecrire (" vous avez utiliser : ",pource_parce_cultiver ," % de votre parcelle )
+	gain_total <-- ((pro_cacao* Convertisseur) *(prix_fix_cacao)) +(( pro_cafe* Convertisseur ) *(prix_fix_cafe) + ((pro_cajoux* Convertisseur) *(prix_fix_cajoux))
+	gain_cacao <-- (pro_cacao *Convertisseur ) * prix_fix_cacao
+	gain_cafe <-- (pro_cafe *Convertisseur)* prix_fix_cafe
+	gain_cajoux <-- (pro_cajou *Convertisseur) * prix_fix_cajoux
+	Ecrire (" vous avez utiliser : ",pource_parce_cultiver ," % de votre parcelle ")
 	Ecrire (" la production total de vos semences est  : ",pro_total, "tonne ")
 	Ecrire (" le gain total est de  : ",gain_total ," fcfa")
 	si (choix = 1) alors
@@ -80,14 +80,14 @@ debut
 	Ecrire (" le cacao occupe  : ",taux_hect_cacao ," % de votre culture" )
 	Ecrire (" la production du cacao est  : ",pro_cacao  ,"tonne")
 	Ecrire (" le gain du cacao est de : ",gain_cacao ,"FCFA")
-	Ecrire (" le cafe occupe  : ",taux_hect_cafe , "% votre culture ")
+	Ecrire (" le cafe occupe  : ",taux_hect_cafe , " % votre culture ")
 	Ecrire (" la production cafe est  : ",pro_cafe ," tonne ")
 	Ecrire (" le gain du cafe est de : ",gain_cafe,"  fcfa ")
 	finsi
 	si ( choix = 3) alors
-	Ecrire (" le cacao occupe  : ",taux_hect_cacao , "% votre culture" )
+	Ecrire (" le cacao occupe  : ",taux_hect_cacao , " % votre culture" )
 	Ecrire (" la production du cacao est  : ",pro_cacao ," tonne")
-	Ecrire (" le gain du cacao est de : ",gain_cacao)
+	Ecrire (" le gain du cacao est de : ",gain_cacao ," FCFA ")
 	Ecrire (" le cafe occupe  : ",taux_hect_cafe , " % de votre culture" )
 	Ecrire (" la production cafe est  : ",pro_cafe , " tonne ")
 	Ecrire (" le gain du cafe est de : ",gain_cafe ," FCFA " )
