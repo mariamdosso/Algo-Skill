@@ -2,7 +2,7 @@
 Algo Calcul_rendement
 VAR : sup_parc,taux_occup,nbr_hect_culture, nbr_hect_cacao,nbr_hect_cafe,  nbr_hect_cajoux,pro_total,pro_cacao,pro_cafe,pro_cajoux,gain_total,gain_caao,gain_cafe,gain_cajoux,pource_parce_cultiver:reel
 	choix:entier
-const : prix_fix_cacao <--1000FCFA,prix_fix_cafe <--750FCFA,prix_fix_cajoux <--226FCFA,tonne_fix_cacao<--1.2,tonne_fix_cafe <-- 0.88,tonne_fix_cajoux<-- 3.6
+const : prix_fix_cacao <--1000FCFA,prix_fix_cafe <--750FCFA,prix_fix_cajoux <--226FCFA,tonne_fix_cacao<--1.2,tonne_fix_cafe <-- 0.88,tonne_fix_cajoux<-- 3.6, Convertisseur <-- 1000
 
 debut
 		
