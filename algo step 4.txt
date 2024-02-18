@@ -51,9 +51,7 @@ debut
 		finsi
 		si (choix = 2 ) alors
 			taux_hect_cacao <--  (nbr_hect_cacao/ taux_occup)*100
-		Ecrire(" voici le taux d'occupation du cacao ",taux_hect_cacao)
 			taux_hect_cafe <-- (nbr_hect_cafe/taux_occup)*100
-		Ecrire(" voici le taux d'occupation du cafe",taux_hect_cafe)
 		finsi
 		si (choix = 3) alors 
 			taux_hect_cacao <--  (nbr_hect_cacao/ taux_occup)*100
@@ -66,31 +64,45 @@ debut
 	pro_cafe <--nbr_hect_cafe*tonne_fix_cafe
 	pro_cajoux <--nbr_hect_cajoux*tonne_fix_cajoux
 ------------------------------------------------------------------------------------------------------------
-	gain_total <-- (pro_cacao*prix_fix_cacao) +( pro_cafe*prix_fix_cafe) + (pro_cajoux*prix_fix_cajoux)
-	gain_cacao <-- pro_cacao * prix_fix_cacao
-
-	gain_cafe <-- pro_cafe * prix_fix_cafe
-	gain_cajoux <-- pro_cajou * prix_fix_cajoux
-	Ecrire (" la superfie cultive est de : ",pource_parce_cultiver de votre parcelle )
-	Ecrire (" le cacao occupe  : ",taux_hect_cacao de votre parcelle )
-	Ecrire (" le cafe occupe  : ",taux_hect_cafe de votre parcelle )
-	Ecrire (" le cajoux occupe  : ",taux_hect_cajoux de votre parcelle )
-	Ecrire (" la production total de vos semences est  : ",pro_total en tonne )
-	Ecrire (" la production du cacao est  : ",pro_cacao  en tonne)
-	Ecrire (" la production cafe est  : ",pro_cafe en tonne )
-	Ecrire (" la production cajoux est  : ",pro_cajoux en tonne )
-	Ecrire (" le gain total est de  : ",gain_total en fcfa)
+	gain_total <-- ((pro_cacao* 1000) *(prix_fix_cacao)) +(( pro_cafe* 1000 ) *(prix_fix_cafe) + ((pro_cajoux* 1000) *(prix_fix_cajoux))
+	gain_cacao <-- (pro_cacao * 1000) * prix_fix_cacao
+	gain_cafe <-- (pro_cafe *1000)* prix_fix_cafe
+	gain_cajoux <-- (pro_cajou *1000) * prix_fix_cajoux
+	Ecrire (" vous avez utiliser : ",pource_parce_cultiver ," % de votre parcelle )
+	Ecrire (" la production total de vos semences est  : ",pro_total, "tonne ")
+	Ecrire (" le gain total est de  : ",gain_total ," fcfa")
+	si (choix = 1) alors
+	Ecrire (" le cacao occupe  : ",taux_hect_cacao ," % de votre culture" )
+	Ecrire (" la production du cacao est  : ",pro_cacao ," tonne")
+	Ecrire (" le gain du cacao est de : ",gain_cacao ,"FCFA")
+	finsi
+	si (choix = 2 ) alors
+	Ecrire (" le cacao occupe  : ",taux_hect_cacao ," % de votre culture" )
+	Ecrire (" la production du cacao est  : ",pro_cacao  ,"tonne")
+	Ecrire (" le gain du cacao est de : ",gain_cacao ,"FCFA")
+	Ecrire (" le cafe occupe  : ",taux_hect_cafe , "% votre culture ")
+	Ecrire (" la production cafe est  : ",pro_cafe ," tonne ")
+	Ecrire (" le gain du cafe est de : ",gain_cafe,"  fcfa ")
+	finsi
+	si ( choix = 3) alors
+	Ecrire (" le cacao occupe  : ",taux_hect_cacao , "% votre culture" )
+	Ecrire (" la production du cacao est  : ",pro_cacao ," tonne")
 	Ecrire (" le gain du cacao est de : ",gain_cacao)
-	Ecrire (" le gain du cafe est de : ",gain_cafe en fcfa )	
-	Ecrire (" le gain de la cajoux est: ",gain_cajoux en fcfa )
+	Ecrire (" le cafe occupe  : ",taux_hect_cafe , " % de votre culture" )
+	Ecrire (" la production cafe est  : ",pro_cafe , " tonne ")
+	Ecrire (" le gain du cafe est de : ",gain_cafe ," FCFA " )
+	Ecrire (" le cajoux occupe  : ",taux_hect_cajoux , " % de votre culture" )
+	Ecrire (" la production cajoux est  : ",pro_cajoux ," tonne ")	
+	Ecrire (" le gain de la cajoux est: ",gain_cajoux ," FCFA ")
+	finsi
 	Si( ( gain_cacao >  gain_cafe ) ET (gain_cacao > gain_cajoux) ) alors 
-		Ecrire (" la culture la plus rentable est le CACAO avec la somme qui est : ", gain_cacao)
+		Ecrire (" la culture la plus rentable est le CACAO avec la somme qui est : ", gain_cacao , "FCFA")
 	FinSi
 	Si (( gain_cafe > gain_cacao) ET (gain_cafe > gain_cajoux) ) alors
-		Ecrire("la culture la plus rentable est : " ,le CAFE avec la somme de :",gain_cafe)
+		Ecrire("la culture la plus rentable est : " ,le CAFE avec la somme de :",gain_cafe , " FCFA ")
 	FinSi
 	si  (( gain_cajoux > gain_cacao) ET (gain_cajoux > gain_cafe) ) alors
-		Ecrire("la culture la plus rentable est : " ,le CAJOUX avec la somme de :",gain_cajoux)	
+		Ecrire("la culture la plus rentable est : " ,le CAJOUX avec la somme de :",gain_cajoux ,"FCFA")	
 	FinSi
 
 
